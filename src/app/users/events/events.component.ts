@@ -7,14 +7,16 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
-  
+  searchword:any;
   constructor(private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  search(id:any){
-    var test = id.target.value;
-    this.router.navigate(['../detail', test], { relativeTo: this.route });
+  searchWord(id:any){
+    this.searchword = id.target.value;
+  }
+  search(){
+    this.router.navigate(['../detail', this.searchword], { relativeTo: this.route });
   }
 }
